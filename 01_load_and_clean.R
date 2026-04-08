@@ -88,7 +88,7 @@ print(
 # based on https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html
 # Ages under 20 will be treated as "underage", NA bmi as "unknown"
 
-insurance_clean <- insurance_clean %>%
+insurance_ready <- insurance_clean %>%
     mutate(
         sick_and_smoking = smoker & chronic_condition,
         bmi_category = case_when(
