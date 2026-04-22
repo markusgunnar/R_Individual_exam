@@ -93,18 +93,39 @@ insurance_ready %>%
 # prior accidents).
 # Charges have a tendency to increase with the number of prior accidents.
 
+# ------------------------------------
+# ---------- Age vs Charges ----------
+# ------------------------------------
+age_summary <- insurance_ready %>%
+    group_by(age) %>%
+    summarise(
+        mean_charges=mean(charges, na.rm=TRUE)
+    )
 
-# The interesting variables to explore further are smoker, exercise_level and
-# prior_accidents. Smokers have significantly higher charges regardless of 
-# children and exercise level. The number of prior accidents show a tendency to
-# increase charges.
+ggplot(age_summary, aes(x=age, y=mean_charges)) +
+    geom_point(color = "black", size=1) +
+    labs(
+        x="Age",
+        y="Average Charge",
+        title="Average Charge per Age"
+    ) +
+    theme_minimal()
+
+# This point plot shows a clear trend that charges increase with age.
+# The scattered nature of the points is consistent with real life
+# observations. Some young people have high charges, some elderly have
+# low charges.
+
+# -----------------------------
+# ---------- SUMMARY ----------
+# -----------------------------
+# The interesting variables to explore further are smoker, exercise_level,
+# prior_accidents and age. Smokers have significantly higher charges regardless
+# of children and exercise level. Age shows a strong tendency to increase 
+# charges. The number of prior accidents show a tendency to increase charges.
 # High and medium exercise level may lower charges as observed.
 
-# Smoker, exercise_level, prior_accidents
-
-
-
-
+# Smoker, exercise_level, prior_accidents, age
 
 
 

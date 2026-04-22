@@ -102,5 +102,5 @@ insurance_ready <- insurance_clean %>%
         )
     )
 
-glimpse(insurance_clean)
-unique(insurance_clean$bmi_category)
+glimpse(insurance_ready)
+unique(insurance_ready$bmi_category)
